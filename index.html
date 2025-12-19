@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="PaySphere — AI-powered payment risk and fraud detection in real-time. Analyze transactions, calculate risk scores, and verify or block instantly.">
+  <meta name="keywords" content="fraud detection, payment risk, AI, fintech, hackathon, real-time analysis">
+  <meta name="author" content="PaySphere">
+
+  <title>PaySphere — AI-Powered Fraud Detection | Hackathon Demo</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='url(%23g)'/><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%236366F1'/><stop offset='100%25' stop-color='%238B5CF6'/></linearGradient></defs><text x='50' y='65' font-size='45' font-weight='bold' text-anchor='middle' fill='white'>◈</text></svg>">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header-container">
+      <a href="#" class="logo" aria-label="PaySphere Home">
+        <div class="logo-icon">◈</div>
+        Pay<span>Sphere</span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="#demo" class="nav-link">Live Demo</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="#pricing" class="nav-link">Pricing</a></li>
+          <li><a href="#market" class="nav-link">Market</a></li>
+        </ul>
+
+        <a href="#demo" class="btn btn-primary">Try Demo</a>
+      </nav>
+
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-grid"></div>
+
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-pulse"></span>
+            <span>Hackathon 2025 Demo</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="text-gradient">AI-Powered</span> Payment Risk<br>
+            & Fraud Detection
+          </h1>
+
+          <p class="hero-description">
+            Analyze incoming payments in real-time. Calculate fraud risk.
+            Verify or block in milliseconds. See the AI in action.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#demo" class="btn btn-primary btn-lg">
+              ▶ Try Live Demo
+            </a>
+            <a href="#how-it-works" class="btn btn-secondary btn-lg">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Demo Section -->
+    <section class="section demo" id="demo">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Live Demo</span>
+          <h2 class="section-title">Simulate a Payment Transaction</h2>
+          <p class="section-description">
+            Enter payment details below. Our AI will analyze and decide in seconds.
+          </p>
+        </div>
+
+        <div class="demo-container">
+          <div class="demo-card fade-in">
+            <div class="demo-header">
+              <h3 class="demo-title">Payment Risk Analysis</h3>
+              <div class="demo-status">
+                <span class="demo-status-dot"></span>
+                <span>AI Engine Ready</span>
+              </div>
+            </div>
+
+            <!-- Payment Form -->
+            <form id="payment-form" class="payment-form">
+              <div class="form-group">
+                <label class="form-label">Amount ($)</label>
+                <input type="number" class="form-input" id="amount" value="2500" min="1" max="1000000">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Sender Country</label>
+                <select class="form-select" id="sender-country">
+                  <option value="US">🇺🇸 United States</option>
+                  <option value="UK">🇬🇧 United Kingdom</option>
+                  <option value="DE">🇩🇪 Germany</option>
+                  <option value="NG">🇳🇬 Nigeria</option>
+                  <option value="RU">🇷🇺 Russia</option>
+                  <option value="CN">🇨🇳 China</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Transaction Type</label>
+                <select class="form-select" id="tx-type">
+                  <option value="standard">Standard Transfer</option>
+                  <option value="instant">Instant Payment</option>
+                  <option value="recurring">Recurring Payment</option>
+                  <option value="first-time">First-time Sender</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Account Age</label>
+                <select class="form-select" id="account-age">
+                  <option value="5years">5+ years</option>
+                  <option value="1year">1-5 years</option>
+                  <option value="6months">6-12 months</option>
+                  <option value="new">Less than 6 months</option>
+                </select>
+              </div>
+
+              <div class="form-group full-width" style="text-align: center; padding-top: var(--space-md);">
+                <button type="submit" class="btn btn-primary btn-lg" id="analyze-btn">
+                  ⚡ Analyze Transaction
+                </button>
+              </div>
+            </form>
+
+            <!-- Loading State -->
+            <div class="loading" id="loading">
+              <div class="loading-spinner"></div>
+              <p class="loading-text">AI analyzing transaction...</p>
+            </div>
+
+            <!-- Risk Analysis Result -->
+            <div class="risk-analysis" id="risk-analysis">
+              <div class="risk-score-container">
+                <div class="risk-score-ring" id="risk-ring">
+                  <span class="risk-score-value" id="risk-value">0</span>
+                </div>
+              </div>
+              <p class="risk-score-label" id="risk-label">Risk Score</p>
+              <div class="risk-factors" id="risk-factors"></div>
+            </div>
+
+            <!-- Decision Result -->
+            <div class="decision-result" id="decision-result">
+              <div class="decision-icon" id="decision-icon"></div>
+              <h3 class="decision-title" id="decision-title"></h3>
+              <p class="decision-message" id="decision-message"></p>
+              <p class="decision-time" id="decision-time"></p>
+              <button class="btn btn-secondary" id="reset-btn" style="margin-top: var(--space-lg);">
+                ↻ Run Another Test
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Process</span>
+          <h2 class="section-title">How PaySphere Works</h2>
+          <p class="section-description">
+            Three steps to fraud-free payments
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card fade-in">
+            <div class="step-number">1</div>
+            <div class="step-icon">📥</div>
+            <h3 class="step-title">Collect</h3>
+            <p class="step-description">
+              Payment data is captured in real-time as transactions flow in.
+            </p>
+          </div>
+
+          <div class="step-card fade-in">
+            <div class="step-number">2</div>
+            <div class="step-icon">🧠</div>
+            <h3 class="step-title">Analyze</h3>
+            <p class="step-description">
+              AI engine evaluates 50+ risk factors in milliseconds.
+            </p>
+          </div>
+
+          <div class="step-card fade-in">
+            <div class="step-number">3</div>
+            <div class="step-icon">✅</div>
+            <h3 class="step-title">Decide</h3>
+            <p class="step-description">
+              Instant verification or block decision with full audit trail.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- B2B / B2C Toggle -->
+    <section class="section use-cases" id="use-cases">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Use Cases</span>
+          <h2 class="section-title">Built for Every Business</h2>
+        </div>
+
+        <div class="toggle-container fade-in">
+          <div class="toggle-group">
+            <button class="toggle-btn active" data-target="b2b">B2B</button>
+            <button class="toggle-btn" data-target="b2c">B2C</button>
+          </div>
+        </div>
+
+        <div class="use-case-content active" id="b2b">
+          <div class="use-case-grid">
+            <div class="use-case-item">
+              <h4>Enterprise Payments</h4>
+              <p>Protect high-value B2B transactions with real-time risk scoring.</p>
+            </div>
+            <div class="use-case-item">
+              <h4>Vendor Verification</h4>
+              <p>Automatically verify new vendor payments and flag anomalies.</p>
+            </div>
+            <div class="use-case-item">
+              <h4>Cross-Border Trade</h4>
+              <p>Navigate international compliance with smart risk assessment.</p>
+            </div>
+            <div class="use-case-item">
+              <h4>Invoice Fraud</h4>
+              <p>Detect fake invoices and business email compromise attacks.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="use-case-content" id="b2c">
+          <div class="use-case-grid">
+            <div class="use-case-item">
+              <h4>E-commerce Protection</h4>
+              <p>Stop fraudulent purchases before they impact your bottom line.</p>
+            </div>
+            <div class="use-case-item">
+              <h4>Account Takeover</h4>
+              <p>Detect compromised accounts through behavioral analysis.</p>
+            </div>
+            <div class="use-case-item">
+              <h4>Card-Not-Present</h4>
+              <p>Reduce chargebacks with intelligent transaction screening.</p>
+            </div>
+            <div class="use-case-item">
+              <h4>Subscription Fraud</h4>
+              <p>Identify synthetic identities and trial abuse patterns.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section pricing" id="pricing">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Pricing</span>
+          <h2 class="section-title">Simple, Transparent</h2>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card fade-in">
+            <h3 class="pricing-name">Free</h3>
+            <div class="pricing-price">$0 <span>/mo</span></div>
+            <div class="pricing-features">
+              <div class="pricing-feature">
+                <span class="pricing-feature-check">✓</span>
+                <span>1,000 transactions/mo</span>
+              </div>
+              <div class="pricing-feature">
+                <span class="pricing-feature-check">✓</span>
+                <span>Basic risk scoring</span>
+              </div>
+              <div class="pricing-feature">
+                <span class="pricing-feature-check">✓</span>
+                <span>Email alerts</span>
+              </div>
+              <div class="pricing-feature">
+                <span class="pricing-feature-check">✓</span>
+                <span>API access</span>
+              </div>
+            </div>
+            <button class="btn btn-secondary">Start Free</button>
+          </div>
+
+          <div class="pricing-card featured fade-in">
+            <h3 class="pricing-name">Full</h3>
+            <div class="pricing-price">$299 <span>/mo</span></div>
+            <div class="pricing-features">
+              <div class="pricing-feature">
+                <span class="pricing-feature-check">✓</span>
+                <span>Unlimited transactions</span>
+              </div>
+              <div class="pricing-feature">
+                <span class="pricing-feature-check">✓</span>
+                <span>Advanced AI models</span>
+              </div>
+              <div class="pricing-feature">
+                <span class="pricing-feature-check">✓</span>
+                <span>Real-time webhooks</span>
+              </div>
+              <div class="pricing-feature">
+                <span class="pricing-feature-check">✓</span>
+                <span>Custom rules engine</span>
+              </div>
+              <div class="pricing-feature">
+                <span class="pricing-feature-check">✓</span>
+                <span>Priority support</span>
+              </div>
+            </div>
+            <button class="btn btn-primary">Get Started</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section class="section market" id="market">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Opportunity</span>
+          <h2 class="section-title">Market Potential</h2>
+        </div>
+
+        <div class="market-grid">
+          <div class="market-card fade-in">
+            <div class="market-value">$38B</div>
+            <div class="market-label">TAM</div>
+            <p class="market-description">Total Addressable Market — Global fraud detection</p>
+          </div>
+
+          <div class="market-card fade-in">
+            <div class="market-value">$12B</div>
+            <div class="market-label">SAM</div>
+            <p class="market-description">Serviceable Market — Payment processors & fintechs</p>
+          </div>
+
+          <div class="market-card fade-in">
+            <div class="market-value">$800M</div>
+            <div class="market-label">SOM</div>
+            <p class="market-description">Obtainable Market — SMB & mid-market focus</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feedback -->
+    <section class="section feedback" id="feedback">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Feedback</span>
+          <h2 class="section-title">Share Your Thoughts</h2>
+        </div>
+
+        <form class="feedback-form fade-in" id="feedback-form">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" class="form-input" placeholder="Enter your name" id="feedback-name">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" placeholder="you@example.com" id="feedback-email">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">What did you think?</label>
+            <textarea class="form-input" placeholder="Your feedback..." id="feedback-message"
+              style="min-height: 100px; resize: vertical;"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            Submit Feedback
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          ◈ Pay<span>Sphere</span>
+        </div>
+        <p class="footer-text">
+          AI-Powered Fraud Detection for Modern Fintech<br>
+          Built for Hackathon 2025
+        
+        </p>
+        <p class="footer-text">
+          Contact: help@paysphere.com
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AI Chat Widget -->
+  <div class="chat-widget" id="chat-widget">
+    <button class="chat-widget-btn" id="chat-toggle" aria-label="Open AI Chat">
+      🤖
+    </button>
+
+    <div class="chat-widget-window" id="chat-window">
+      <div class="chat-header">
+        <div class="chat-header-avatar">🤖</div>
+        <div class="chat-header-info">
+          <h4>PaySphere AI</h4>
+          <p>Ask about fraud detection</p>
+        </div>
+        <button class="chat-close" id="chat-close">✕</button>
+      </div>
+
+      <div class="chat-messages" id="chat-messages">
+        <div class="chat-message chat-message-ai">
+          👋 Hi! I'm the PaySphere AI assistant. Ask me anything about our fraud detection system!
+        </div>
+      </div>
+
+      <div class="chat-input-container">
+        <input type="text" class="chat-input" id="chat-input" placeholder="Ask a question..." autocomplete="off">
+        <button class="chat-send" id="chat-send">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
